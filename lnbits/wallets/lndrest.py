@@ -39,8 +39,11 @@ class LndRestWallet(Wallet):
                 encrypted_macaroon
             )
 
-        if not endpoint or not macaroon or not settings.lnd_rest_cert:
+        if not endpoint or not macaroon:
             raise Exception("cannot initialize lndrest")
+
+        if settings.lnd_rest_cert == "":
+            self.cert = False
 
         endpoint = endpoint[:-1] if endpoint.endswith("/") else endpoint
         endpoint = (
