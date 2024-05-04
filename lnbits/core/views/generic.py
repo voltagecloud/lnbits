@@ -52,6 +52,11 @@ async def home(request: Request, lightning: str = ""):
         request, "core/index.html", {"lnurl": lightning}
     )
 
+@generic_router.get("/start", response_class=HTMLResponse)
+async def home(request: Request, lightning: str = ""):
+    return template_renderer().TemplateResponse(
+        request, "core/index.html", {"lnurl": lightning}
+    )
 
 @generic_router.get("/first_install", response_class=HTMLResponse)
 async def first_install(request: Request):
