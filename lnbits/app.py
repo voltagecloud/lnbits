@@ -259,7 +259,7 @@ async def build_all_installed_extensions_list(
     Returns a list of all the installed extensions plus the extensions that
     MUST be installed by default (see LNBITS_EXTENSIONS_DEFAULT_INSTALL).
     """
-    installed_extensions = await get_installed_extensions()
+    installed_extensions = []
     settings.lnbits_all_extensions_ids = {e.id for e in installed_extensions}
 
     for ext_id in settings.lnbits_extensions_default_install:
